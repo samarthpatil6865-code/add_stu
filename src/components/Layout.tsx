@@ -58,7 +58,7 @@ const Layout = ({ children }: LayoutProps) => {
             </div>
             {sidebarOpen && (
               <span className="font-semibold text-sidebar-foreground whitespace-nowrap">
-                StudentMS
+                Class Folio Desk
               </span>
             )}
           </div>
@@ -136,7 +136,7 @@ const Layout = ({ children }: LayoutProps) => {
           </Button>
           <div className="flex items-center gap-2">
             <GraduationCap className="w-6 h-6 text-primary" />
-            <span className="font-semibold">StudentMS</span>
+            <span className="font-semibold">Class Folio Desk</span>
           </div>
           <Button variant="ghost" size="icon" onClick={toggleTheme}>
             {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
