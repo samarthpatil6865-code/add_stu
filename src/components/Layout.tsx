@@ -24,6 +24,7 @@ const navItems = [
   { path: "/classes", icon: GraduationCap, label: "Manage Classes" },
   { path: "/students", icon: Users, label: "Manage Students" },
   { path: "/search", icon: Search, label: "Search" },
+  { path: "#", icon: null, label: "powered by prajakta" },
 ];
 
 const Layout = ({ children }: LayoutProps) => {
@@ -57,9 +58,14 @@ const Layout = ({ children }: LayoutProps) => {
               <GraduationCap className="w-6 h-6 text-sidebar-primary-foreground" />
             </div>
             {sidebarOpen && (
-              <span className="font-semibold text-sidebar-foreground whitespace-nowrap">
-                Class Folio Desk
-              </span>
+              <div className="overflow-hidden">
+                <span className="font-semibold text-sidebar-foreground whitespace-nowrap">
+                  Class Folio Desk
+                </span>
+                <p className="text-xs text-sidebar-foreground/70 italic">
+                  Empowering Education Together
+                </p>
+              </div>
             )}
           </div>
           <Button
@@ -91,13 +97,14 @@ const Layout = ({ children }: LayoutProps) => {
                     to={item.path}
                     onClick={() => setMobileMenuOpen(false)}
                     className={cn(
-                      "flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200",
+                      "flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-300 transform hover:scale-105",
                       isActive
-                        ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                        : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                        ? "bg-sidebar-primary text-sidebar-primary-foreground shadow-lg"
+                        : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground hover:shadow-md",
+                      item.label === "powered by prajakta" && "text-xs italic opacity-75 cursor-default hover:scale-100"
                     )}
                   >
-                    <item.icon className="w-5 h-5 flex-shrink-0" />
+                    {item.icon && <item.icon className="w-5 h-5 flex-shrink-0 transition-transform duration-200 group-hover:scale-110" />}
                     {sidebarOpen && <span className="font-medium">{item.label}</span>}
                   </NavLink>
                 </li>
